@@ -1,0 +1,16 @@
+<form name="f1" [formGroup]="registerForm" style="width: 50%; margin-left: auto; margin-right: auto; border:2px solid red; margin-bottom:40px">
+    <div class="form-group">
+        <label>Employee Name</label>
+        <input class="form-control" formControlName="eName" />
+    </div>
+    <div class="form-group">
+        <label>Employee EMail</label>
+        <input class="form-control" formControlName="eEmail" />
+    </div>
+</form>
+<div style="border:2px solid green">
+    <h2>
+        Laxman's Personal Details
+    </h2>
+    <app-reg-personal-details [basicData]="registerForm?.value" (myEvent)="getChildData($event)"></app-reg-personal-details>
+</div>

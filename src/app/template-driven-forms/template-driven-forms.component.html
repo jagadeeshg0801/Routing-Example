@@ -1,0 +1,29 @@
+<h1>Example of Template Driven Forms</h1>
+<hr />
+<form name="loginForm" #loginForm="ngForm" (ngSubmit)="loginForm.valid && login(loginForm)" autocomplete="off">
+    <div *ngIf="loginForm.submitted && (uName.invalid && pwd.invalid) ">
+        <h4>User Name & Password should not be empty !!</h4>
+    </div>
+    <div>
+        <label>User Name</label>
+        <input type="text" name="uName" #uName="ngModel" placeholder="Enter User Name" [(ngModel)]="userObject.userName" required />
+        <div *ngIf="loginForm.submitted && uName.invalid && pwd.valid">
+            <p>Please Enter User Name</p>
+        </div>
+        <div *ngIf="uName.valid && userObject.userName.length<=5">
+            <p>Invalid Characters Lenght</p>
+        </div>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" name="pwd" #pwd="ngModel" placeholder="Enter Password" [(ngModel)]="userObject.passwd" required />
+        <div *ngIf="loginForm.submitted && pwd.invalid && uName.valid">
+            <p>Please Enter Password</p>
+        </div>
+    </div>
+    <div>
+        <button type="submit">Login</button>
+        <button type="reset">Reset</button>
+    </div>
+
+</form>

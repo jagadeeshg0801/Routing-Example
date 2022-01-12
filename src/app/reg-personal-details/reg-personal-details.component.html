@@ -1,0 +1,13 @@
+<p *ngIf="basicData.eName"> {{basicData.eName +"'s "}} Personal Details</p>
+<p>Basic Details: {{basicData | json}}</p>
+<form [formGroup]="persForm" (ngSubmit)="submitData()">
+    <div>
+        <label>Address</label>
+        <textarea rows="5" formControlName="address"></textarea>
+    </div>
+    <div>
+        <button type="submit">submit</button>
+    </div>
+</form>
+
+<button type="button" (click)="sendData()">Send Data</button>
